@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse Causes - CauseConnect</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-mount"></div>
+
+<div class="container page-head reveal-up">
+  <h1>Browse Verified Causes</h1>
+  <p>Connect with people creating positive impact across education, healthcare, disaster relief, and grassroots communities.</p>
+</div>
+
+<div class="container section" style="padding-top:24px;">
+  <div class="flex gap-16 mb-24 reveal" style="flex-wrap:wrap;align-items:center;justify-content:space-between;">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="text" id="search-input" class="input" placeholder="Search causes by title or keyword...">
+    </div>
+    <select id="sort-select" class="input" style="max-width:200px;">
+      <option value="newest">Newest first</option>
+      <option value="progress">Closest to goal</option>
+      <option value="goal-high">Goal: High to low</option>
+      <option value="goal-low">Goal: Low to high</option>
+    </select>
+  </div>
+
+  <div class="chip-row mb-24 reveal delay-100" id="category-chips">
+    <button class="chip active" data-category="All">All Causes</button>
+    <button class="chip" data-category="Education">📚 Education</button>
+    <button class="chip" data-category="Medical">🏥 Medical</button>
+    <button class="chip" data-category="Emergency">🚨 Emergency</button>
+    <button class="chip" data-category="Community">🏘️ Community</button>
+    <button class="chip" data-category="Other">🐾 Animal Welfare</button>
+  </div>
+
+  <p class="text-gray mb-16" id="result-count"></p>
+
+  <div class="campaign-grid" id="campaigns-grid"></div>
+
+  <div class="empty-state hidden" id="empty-state">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <h3>No causes found</h3>
+    <p>Try adjusting your search terms or filter category.</p>
+  </div>
+</div>
+
+<div id="footer-mount"></div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderNavbar("campaigns");
+  renderFooter();
+  initCampaignsPage();
+</script>
+</body>
+</html>

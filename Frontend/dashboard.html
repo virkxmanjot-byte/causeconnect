@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard - CauseConnect</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-mount"></div>
+
+<div class="dash-layout">
+  <div id="dashboard-sidebar-mount"></div>
+
+  <main class="dash-main">
+    <button class="sidebar-mobile-toggle" id="sidebar-toggle">☰ Navigation Menu</button>
+
+    <div class="dash-topbar">
+      <div>
+        <h1>Welcome back, <span id="dash-user-name"></span> 👋</h1>
+        <p>Real-time overview of your causes and contributions on CauseConnect.</p>
+      </div>
+      <a href="create-campaign.html" class="btn btn-primary">+ Start a Cause</a>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-label">My Causes</div>
+        <div class="stat-value" id="dash-campaign-count">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Funds Mobilized</div>
+        <div class="stat-value" id="dash-total-raised">₹0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Contributions Made</div>
+        <div class="stat-value" id="dash-contribution-count">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Impact Contributed</div>
+        <div class="stat-value" id="dash-total-contributed">₹0</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h3>My Recent Causes</h3>
+        <a href="my-campaigns.html" class="btn btn-secondary btn-sm">View all</a>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Title</th><th>Category</th><th>Goal</th><th>Raised</th><th>Status</th><th>Created</th></tr></thead>
+          <tbody id="dash-recent-campaigns"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <h3>Causes You Can Champion</h3>
+        <a href="campaigns.html" class="btn btn-secondary btn-sm">Browse all</a>
+      </div>
+      <div style="padding:20px 22px;">
+        <div class="campaign-grid" id="dash-recommended-campaigns" style="grid-template-columns:repeat(3,1fr);"></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script>
+  const session = Auth.requireLogin();
+  if (session) {
+    renderNavbar("dashboard");
+    renderDashboardSidebar("dashboard");
+    initCreatorDashboardPage();
+  }
+</script>
+</body>
+</html>

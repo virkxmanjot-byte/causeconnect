@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard - CauseConnect</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-mount"></div>
+
+<div class="dash-layout">
+  <div id="admin-sidebar-mount"></div>
+
+  <main class="dash-main" id="admin-dashboard-root">
+    <button class="sidebar-mobile-toggle" id="sidebar-toggle">☰ Menu</button>
+
+    <div class="dash-topbar reveal">
+      <div>
+        <h1>CauseConnect Command Center</h1>
+        <p>Live health monitoring, pending cause verification, and platform metrics.</p>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <a href="admin-campaigns.html" class="btn btn-secondary btn-sm">Moderation Center</a>
+        <a href="admin-contributions.html" class="btn btn-primary btn-sm">Financial Ledger</a>
+      </div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card reveal delay-1">
+        <div class="stat-label">Total Causes</div>
+        <div class="stat-value" id="stat-total-campaigns">0</div>
+        <p class="text-gray" style="font-size:0.8rem; margin-top:4px;">Across all categories</p>
+      </div>
+      <div class="stat-card reveal delay-2">
+        <div class="stat-label">Pending Verification</div>
+        <div class="stat-value" id="stat-pending-campaigns" style="color:var(--color-warning);">0</div>
+        <p class="text-gray" style="font-size:0.8rem; margin-top:4px;">Awaiting admin approval</p>
+      </div>
+      <div class="stat-card reveal delay-3">
+        <div class="stat-label">Verified Users</div>
+        <div class="stat-value" id="stat-total-users">0</div>
+        <p class="text-gray" style="font-size:0.8rem; margin-top:4px;">Creators & contributors</p>
+      </div>
+      <div class="stat-card reveal delay-4">
+        <div class="stat-label">Platform Impact Mobilized</div>
+        <div class="stat-value" id="stat-total-raised">₹0</div>
+        <p class="text-gray" style="font-size:0.8rem; margin-top:4px;">100% transparent audit</p>
+      </div>
+    </div>
+
+    <!-- Pending Verification Queue Panel -->
+    <div class="panel reveal delay-2 mb-32">
+      <div class="panel-head">
+        <div>
+          <h3 style="display:flex; align-items:center; gap:8px;">
+            <span>Pending Causes Queue</span>
+            <span class="badge badge-warning" style="font-size:0.75rem;">Action Needed</span>
+          </h3>
+          <p class="text-gray" style="font-size:0.86rem; margin:0;">Verify initiatives submitted by changemakers before they go public.</p>
+        </div>
+        <a href="admin-campaigns.html" class="btn btn-secondary btn-sm">View All Moderation</a>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Cause Title</th>
+              <th>Category</th>
+              <th>Target Goal</th>
+              <th>Submitted</th>
+              <th>Quick Verification</th>
+            </tr>
+          </thead>
+          <tbody id="pending-campaigns-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Recent Platform Causes Panel -->
+    <div class="panel reveal delay-3">
+      <div class="panel-head">
+        <div>
+          <h3>Recent Platform Causes</h3>
+          <p class="text-gray" style="font-size:0.86rem; margin:0;">Live status of recent campaigns created across India.</p>
+        </div>
+        <a href="admin-campaigns.html" class="btn btn-secondary btn-sm">Manage All →</a>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Goal</th>
+              <th>Raised</th>
+              <th>Status</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody id="recent-campaigns-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderNavbar();
+  renderAdminSidebar("dashboard");
+  initAdminDashboardPage();
+</script>
+</body>
+</html>

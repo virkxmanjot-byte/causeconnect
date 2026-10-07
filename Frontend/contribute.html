@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contribute to Cause - CauseConnect</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-mount"></div>
+
+<div class="container section" style="max-width:640px;">
+  <div id="contribute-root">
+
+    <div id="contribute-form-panel">
+      <div class="page-head" style="padding-top:0;">
+        <span class="chip-sm mb-8" id="contribute-campaign-category"></span>
+        <h1 id="contribute-campaign-title"></h1>
+      </div>
+
+      <div class="progress-track mb-8" style="margin-top:16px;"><div class="progress-fill" id="contribute-progress-fill" style="width:0%"></div></div>
+      <div class="progress-meta mb-24">
+        <span><strong id="contribute-raised"></strong> raised</span>
+        <span>of <span id="contribute-goal"></span> goal</span>
+      </div>
+
+      <div class="form-card">
+        <h3 class="mb-16">Enter Contribution Amount</h3>
+        <form id="contribute-form">
+          <div class="form-group">
+            <label for="amount">Amount (₹)</label>
+            <input type="number" id="amount" name="amount" class="input" placeholder="e.g. 1000" min="10" required>
+            <div class="amount-presets">
+              <button type="button" data-amount="250">₹250</button>
+              <button type="button" data-amount="500">₹500</button>
+              <button type="button" data-amount="1000">₹1,000</button>
+              <button type="button" data-amount="2500">₹2,500</button>
+              <button type="button" data-amount="5000">₹5,000</button>
+            </div>
+            <div class="field-error" id="amount-error">Enter a valid amount.</div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Confirm Contribution</button>
+          <p class="text-gray text-center mt-16" style="font-size:0.8rem;">🔒 Secure simulated transaction on CauseConnect platform.</p>
+        </form>
+      </div>
+    </div>
+
+    <div id="contribute-confirm-panel" class="hidden text-center">
+      <div class="form-card">
+        <div style="font-size:3.5rem; margin-bottom:12px;">🌱</div>
+        <h2 class="mb-8" style="color:var(--color-primary);">Thank you for creating impact!</h2>
+        <p class="text-gray mb-24">You contributed <strong id="confirm-amount"></strong> to support <strong id="confirm-campaign-title"></strong>.</p>
+        <div class="flex gap-12" style="justify-content:center; flex-wrap:wrap;">
+          <a href="my-contributions.html" class="btn btn-primary">View Donation History</a>
+          <a href="campaigns.html" class="btn btn-secondary">Explore More Causes</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="footer-mount"></div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderNavbar("campaigns");
+  renderFooter();
+  initContributePage();
+</script>
+</body>
+</html>

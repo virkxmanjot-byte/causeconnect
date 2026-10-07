@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CauseConnect - Connect People. Fund Causes. Create Impact.</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-mount"></div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy reveal-left">
+      <span class="hero-eyebrow">🌱 5,000+ changemakers funding verified impact</span>
+      <h1>Connect People. <span class="accent">Fund Causes.</span> Create Impact.</h1>
+      <p class="lead">CauseConnect unites passionate backers with transparent community changemakers across education, healthcare, emergency disaster relief, and grassroots initiatives.</p>
+      <div class="hero-cta">
+        <a href="campaigns.html" class="btn btn-primary">Explore Causes</a>
+        <a href="create-campaign.html" class="btn btn-outline">Start a Cause</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num" id="stat-raised">₹0</div>
+          <div class="stat-label">Total Impact Funded</div>
+        </div>
+        <div>
+          <div class="stat-num" id="stat-campaigns">0</div>
+          <div class="stat-label">Active Causes</div>
+        </div>
+        <div>
+          <div class="stat-num" id="stat-backers">0</div>
+          <div class="stat-label">Contributions Made</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal-right">
+      <div id="hero-preview-card"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="section reveal">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Browse by cause category</h2>
+        <p>Support initiatives where help is needed the most.</p>
+      </div>
+    </div>
+    <div class="chip-row">
+      <a href="campaigns.html?category=Education" class="chip">📚 Education</a>
+      <a href="campaigns.html?category=Medical" class="chip">🏥 Medical Relief</a>
+      <a href="campaigns.html?category=Emergency" class="chip">🚨 Disaster Relief</a>
+      <a href="campaigns.html?category=Community" class="chip">🏘️ Community Development</a>
+      <a href="campaigns.html?category=Other" class="chip">🐾 Animal Welfare</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURED CAMPAIGNS ================= -->
+<section class="section reveal" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Featured causes</h2>
+        <p>Verified campaigns closest to achieving their community goal.</p>
+      </div>
+      <a href="campaigns.html" class="btn btn-secondary btn-sm">View all causes</a>
+    </div>
+    <div class="campaign-grid" id="featured-campaigns"></div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section reveal" id="how-it-works" style="background:var(--color-white);border-top:1px solid var(--color-border);border-bottom:1px solid var(--color-border);">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>How CauseConnect works</h2>
+        <p>Simple, transparent, and built for real social impact.</p>
+      </div>
+    </div>
+    <div class="campaign-grid">
+      <div class="form-card reveal delay-100">
+        <h3 class="mb-8">1. Start a Cause</h3>
+        <p class="text-gray">Share your cause's story, set a transparent target, and submit for verification.</p>
+      </div>
+      <div class="form-card reveal delay-200">
+        <h3 class="mb-8">2. Connect People</h3>
+        <p class="text-gray">Once verified, your cause is discovered by thousands of compassionate backers.</p>
+      </div>
+      <div class="form-card reveal delay-300">
+        <h3 class="mb-8">3. Create Impact</h3>
+        <p class="text-gray">Receive contributions, publish regular progress updates, and change lives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section text-center reveal-scale">
+  <div class="container">
+    <h2 class="mb-16">Have a cause worth funding?</h2>
+    <p class="text-gray mb-24">Starting your campaign on CauseConnect takes less than five minutes.</p>
+    <a href="create-campaign.html" class="btn btn-primary">Start Your Campaign Now</a>
+  </div>
+</section>
+
+<div id="footer-mount"></div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderNavbar("home");
+  renderFooter();
+  initHomePage();
+</script>
+</body>
+</html>

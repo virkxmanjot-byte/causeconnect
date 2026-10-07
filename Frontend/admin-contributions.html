@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contribution Ledger - CauseConnect Admin</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-mount"></div>
+
+<div class="dash-layout">
+  <div id="admin-sidebar-mount"></div>
+
+  <main class="dash-main">
+    <button class="sidebar-mobile-toggle" id="sidebar-toggle">☰ Menu</button>
+
+    <div class="dash-topbar reveal">
+      <div>
+        <h1>Contribution Transaction Ledger</h1>
+        <p>Live transaction audit across all causes supported on CauseConnect.</p>
+      </div>
+      <div>
+        <a href="admin-dashboard.html" class="btn btn-secondary btn-sm">← Back to Overview</a>
+      </div>
+    </div>
+
+    <div class="stat-grid" style="grid-template-columns:repeat(2, 1fr); max-width:540px;">
+      <div class="stat-card reveal delay-1">
+        <div class="stat-label">Total Volume Mobilized</div>
+        <div class="stat-value" id="admin-contrib-total">₹0</div>
+        <p class="text-gray" style="font-size:0.8rem; margin-top:4px;">100% transparent donation flow</p>
+      </div>
+      <div class="stat-card reveal delay-2">
+        <div class="stat-label">Total Transactions</div>
+        <div class="stat-value" id="admin-contrib-count">0</div>
+        <p class="text-gray" style="font-size:0.8rem; margin-top:4px;">Verified on platform</p>
+      </div>
+    </div>
+
+    <div class="panel reveal delay-3">
+      <div class="toolbar">
+        <div class="search-wrap" style="max-width:380px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" id="contrib-search" class="input" placeholder="Search by supporter, cause, or Tx ID...">
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tx ID</th><th>Supporter</th><th>Cause Title</th><th>Amount</th><th>Date</th><th>Status</th></tr></thead>
+          <tbody id="admin-contributions-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderNavbar();
+  renderAdminSidebar("contributions");
+  initAdminContributionsPage();
+</script>
+</body>
+</html>

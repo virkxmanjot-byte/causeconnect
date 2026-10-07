@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start a Cause - CauseConnect</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-mount"></div>
+
+<div class="container page-head reveal-up">
+  <h1 id="create-page-title">Start a Cause</h1>
+  <p>Share your story, set a transparent goal, and rally compassionate support on CauseConnect.</p>
+</div>
+
+<div class="container section" style="padding-top:24px;">
+  <div class="details-layout">
+
+    <form id="create-campaign-form" class="reveal-left">
+      <div class="form-card">
+        <div class="form-group">
+          <label for="title">Cause Title</label>
+          <input type="text" id="title" name="title" class="input" placeholder="e.g. Education Sponsorship for Underprivileged Children" required>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" name="category" class="input" required>
+            <option value="">Select a category</option>
+            <option value="Education">Education</option>
+            <option value="Medical">Medical Relief</option>
+            <option value="Emergency">Emergency Aid</option>
+            <option value="Community">Community Development</option>
+            <option value="Other">Animal Welfare / Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="goal_amount">Funding Goal (₹)</label>
+          <input type="number" id="goal_amount" name="goal_amount" class="input" placeholder="e.g. 50000" min="100" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Cause Story & Impact Plan</label>
+          <textarea id="description" name="description" class="input" placeholder="Explain who needs help, what milestones will be achieved, and how funds will be deployed..." required></textarea>
+          <div class="hint">Be authentic and detailed to build trust with donors.</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" id="create-submit-btn">Publish Cause</button>
+      </div>
+    </form>
+
+    <div class="sticky-card reveal-right">
+      <div class="form-card">
+        <h3 class="mb-12">💡 Why CauseConnect?</h3>
+        <ul style="display:flex; flex-direction:column; gap:12px; font-size:0.9rem; color:var(--color-gray);">
+          <li>✅ <strong>Zero Hidden Fees:</strong> 100% transparent donation tracking.</li>
+          <li>✅ <strong>Real-time Updates:</strong> Share milestones directly with your backers.</li>
+          <li>✅ <strong>Instant Verification:</strong> Dedicated administrator review to protect donors.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="footer-mount"></div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderNavbar("create");
+  renderFooter();
+  initCreateCampaignPage();
+</script>
+</body>
+</html>

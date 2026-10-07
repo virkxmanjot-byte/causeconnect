@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contributor Impact Dashboard - CauseConnect</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-mount"></div>
+
+<div class="dash-layout">
+  <div id="dashboard-sidebar-mount"></div>
+
+  <main class="dash-main">
+    <button class="sidebar-mobile-toggle" id="sidebar-toggle">☰ Menu</button>
+
+    <div class="dash-topbar reveal">
+      <div>
+        <h1>Welcome back, <span id="contrib-user-name">Friend</span> 👋</h1>
+        <p>Track your positive social footprint, verified receipts, and live milestone updates.</p>
+      </div>
+      <div>
+        <a href="campaigns.html" class="btn btn-primary">🌍 Explore Causes</a>
+      </div>
+    </div>
+
+    <!-- Stat Counters -->
+    <div class="stat-grid">
+      <div class="stat-card reveal delay-1">
+        <div class="stat-label">Total Impact Funded</div>
+        <div class="stat-value" id="contrib-total-donated">₹0</div>
+        <p class="text-gray" style="font-size:0.8rem; margin-top:4px;">100% directly transferred</p>
+      </div>
+      <div class="stat-card reveal delay-2">
+        <div class="stat-label">Causes Backed</div>
+        <div class="stat-value" id="contrib-causes-supported">0</div>
+        <p class="text-gray" style="font-size:0.8rem; margin-top:4px;">Across health, nature, & education</p>
+      </div>
+      <div class="stat-card reveal delay-3">
+        <div class="stat-label">Impact Certificates</div>
+        <div class="stat-value" id="contrib-certificates">0</div>
+        <p class="text-gray" style="font-size:0.8rem; margin-top:4px;">Verified donor credentials</p>
+      </div>
+      <div class="stat-card reveal delay-4">
+        <div class="stat-label">Donor Standing</div>
+        <div class="stat-value" style="font-size:1.4rem; color:var(--color-primary); padding-top:6px;">🌟 Champion</div>
+        <p class="text-gray" style="font-size:0.8rem; margin-top:4px;">Top tier changemaker</p>
+      </div>
+    </div>
+
+    <!-- Backed Causes Grid -->
+    <div class="panel reveal delay-2 mb-32">
+      <div class="panel-head">
+        <div>
+          <h3>Causes You Are Championing</h3>
+          <p class="text-gray" style="font-size:0.88rem; margin:0;">Initiatives currently benefiting from your financial backing.</p>
+        </div>
+        <a href="campaigns.html" class="btn btn-secondary btn-sm">Support More Causes</a>
+      </div>
+      <div class="campaign-grid" id="contrib-supported-grid" style="grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));">
+        <!-- Rendered by initContributorDashboardPage() -->
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:24px; align-items:start;">
+      <!-- Recent Contributions Ledger -->
+      <div class="panel reveal delay-3">
+        <div class="panel-head">
+          <h3>Recent Contribution Ledger</h3>
+          <a href="my-contributions.html" class="btn btn-secondary btn-sm">All Donations →</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Cause</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="contrib-history-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Live Updates Feed from Supported Causes -->
+      <div class="panel reveal delay-4">
+        <div class="panel-head">
+          <h3>Cause Milestones</h3>
+          <a href="campaign-updates.html" class="btn btn-secondary btn-sm">All Updates →</a>
+        </div>
+        <div id="contrib-updates-feed" class="timeline-feed" style="margin-top:12px;">
+          <!-- Rendered by initContributorDashboardPage() -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderNavbar("dashboard");
+  renderContributorSidebar("dashboard");
+  initContributorDashboardPage();
+</script>
+</body>
+</html>

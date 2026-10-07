@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Users - CauseConnect Admin</title>
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar-mount"></div>
+
+<div class="dash-layout">
+  <div id="admin-sidebar-mount"></div>
+
+  <main class="dash-main">
+    <button class="sidebar-mobile-toggle" id="sidebar-toggle">☰ Menu</button>
+
+    <div class="dash-topbar reveal">
+      <div>
+        <h1>Registered Users & Roles</h1>
+        <p>All cause creators and contributors on CauseConnect.</p>
+      </div>
+      <div>
+        <a href="admin-dashboard.html" class="btn btn-secondary btn-sm">← Back to Overview</a>
+      </div>
+    </div>
+
+    <div class="panel reveal delay-1">
+      <div class="toolbar">
+        <div class="search-wrap" style="max-width:380px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" id="user-search" class="input" placeholder="Search by name, email, or role...">
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>User ID</th><th>Name</th><th>Email</th><th>Role</th><th>Actions</th></tr></thead>
+          <tbody id="admin-users-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderNavbar();
+  renderAdminSidebar("users");
+  initAdminUsersPage();
+</script>
+</body>
+</html>
